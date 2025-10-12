@@ -22,11 +22,11 @@ public class CachingBreedFetcher implements BreedFetcher {
     }
 
     @Override
-    public List<String> getSubBreeds(String breed) {
+    public List<String> getSubBreeds(String breed) throws BreedNotFoundException {
         // return statement included so that the starter code can compile and run.
         if (!map.containsKey(breed)){
             callsMade++;
-            map.put(breed, fetch.getSubBreeds("hound"));
+            map.put(breed, fetch.getSubBreeds(breed));
         }
 
         return map.get(breed);
